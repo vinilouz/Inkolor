@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html <?php language_attributes(); ?>>
 
 <head>
 	<!--[if IE]>
@@ -31,6 +31,8 @@ defined( 'ABSPATH' ) || exit;
 	<!-- <meta property="fb:app_id" content="xxxx" /> -->
 	<!-- <meta property="fb:admins" content="xxxx" /> -->
 
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 

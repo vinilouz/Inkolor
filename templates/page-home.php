@@ -1,3 +1,13 @@
+<?php
+/**
+ * Template for home page.
+ *
+ * @package inkolor
+ */
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;?>
+
 <div id="content-nav" class="position-fixed list-group d-none d-lg-flex">
 	<a class="list-group-item p-0" href="#header"></a>
 	<a class="list-group-item p-0" href="#sec-2"></a>

@@ -1,3 +1,13 @@
+<?php
+/**
+ * Header Template.
+ *
+ * @package inkolor
+ */
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;?>
+
 <header id="header" class="position-relative mb-5 pb-4">
 	<div class="container pt-3">
 		<div class="row pt-4">

@@ -1,3 +1,13 @@
+<?php
+/**
+ * Footer Template.
+ *
+ * @package inkolor
+ */
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;?>
+
 <footer id="footer" class="position-relative">
 	<div class="logo-footer">
 		<img src="<?php echo get_template_directory_uri()."/img/logo-footer.png";?>" alt="Logo">
