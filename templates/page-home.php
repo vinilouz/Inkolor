@@ -1,4 +1,4 @@
-<div id="content-nav" class="position-fixed list-group">
+<div id="content-nav" class="position-fixed list-group d-none d-lg-flex">
 	<a class="list-group-item p-0" href="#header"></a>
 	<a class="list-group-item p-0" href="#sec-2"></a>
 	<a class="list-group-item p-0" href="#sec-3"></a>
@@ -15,12 +15,12 @@ $topo = get_field('topo');?>
 
 	<div class="container banner">
 		<div class="row">
-			<div class="col-4">
+			<div class="col-12 col-md-4">
 				<?php // Text fields from section 'topo'
 				echo '<span class="text-scroll">'.$topo['topo_left']['sub_title'].'</span>';
 				echo '<h2 class="text-banner text-dark">'.$topo['topo_left']['title'].'</h2>';
-				echo '<div class="desc mt-3 mb-5">'.$topo['topo_left']['description'].'</div>';
-				echo '<a class="mt-3 text-cta bg-primary"
+				echo '<div class="desc mt-3 mb-md-5">'.$topo['topo_left']['description'].'</div>';
+				echo '<a class="mt-md-3 text-cta bg-primary"
 					target="'.$topo['topo_left']['botao']['target'].'"
 					href="'.$topo['topo_left']['botao']['url'].'">
 						<span class="bg-white rounded-circle icon-arrow-down mr-4"></span>'
@@ -36,12 +36,12 @@ $topo = get_field('topo');?>
 
 	<div class="container desconto pb-4">
 		<div class="row">
-			<div class="col-7">
+			<div class="col-12 col-lg-7">
 				<div class="d-flex position-relative">
-					<div class="circle">
+					<div class="circle d-none d-lg-flex">
 						<span class="icon-medal"></span>
 					</div>
-					<div class="wrapper-text ml-4 pl-3 pt-4">
+					<div class="wrapper-text ml-lg-4 pl-lg-3 pt-lg-4">
 						<?php
 						echo '<span class="text-scroll text-primary">'.$topo['desconto']['sub_title'].'</span>';
 						echo '<h2 class="text-titulo text-dark">'.$topo['desconto']['title'].'</h2>';
@@ -52,10 +52,10 @@ $topo = get_field('topo');?>
 					</span>
 				</div>
 			</div>
-			<div class="col offset-lg-1">
+			<div class="col offset-xl-1">
 				<?php // Check rows exists.
 				if( $topo['lista'] ) {
-					echo '<ul class="checklist mt-5">';
+					echo '<ul class="checklist mt-0 mt-lg-5">';
 					foreach( $topo['lista'] as $row ) {
 						echo '<li class="text-texto">';
 							echo $row['texto'];
@@ -72,20 +72,20 @@ $topo = get_field('topo');?>
 <?php // Get field group 'produtos'
 $produtos = get_field('produtos');?>
 <section id="sec-2" class="produtos">
-	<img class="bg" src="<?php echo $produtos['image']['url'];?>" alt="<?php echo $produtos['image']['alt'];?>">
+	<img class="bg d-none d-lg-block" src="<?php echo $produtos['image']['url'];?>" alt="<?php echo $produtos['image']['alt'];?>">
 	<div class="shape"></div>
 	<div class="container">
 		<div class="row">
-			<div class="col-6 pt-5 mt-5">
+			<div class="col-12 col-6 pt-lg-5 mt-5">
 				<div class="d-flex position-relative">
-					<div class="wrapper-text ml-4 pl-3 pt-4">
+					<div class="wrapper-text">
 						<?php
 						echo '<span class="text-scroll text-warning">'.$produtos['txts']['sub_title'].'</span>';
 						echo '<h2 class="text-titulo text-white">'.$produtos['txts']['title'].'</h2>';
 						echo '<div class="mt-3 text-texto text-white">'.$produtos['txts']['description'].'</div>';
 						?>
 					</div>
-					<span class="text-silhueta text-dark">
+					<span class="text-silhueta text-dark d-none d-lg-block">
 						<?php echo $produtos['txts']['value'].'+'; ?>
 					</span>
 				</div>
@@ -98,7 +98,7 @@ $produtos = get_field('produtos');?>
 <section id="sec-3" class="compre-online">
 	<div class="container">
 		<div class="row">
-			<div class="col-5">
+			<div class="col-12 col-lg-5">
 				<div class="circle -min position-absolute">
 					<span class="icon-buyon"></span>
 				</div>
@@ -138,8 +138,10 @@ $produtos = get_field('produtos');?>
 <section id="sec-4" class="infos">
 	<div class="container">
 		<div class="row position-relative">
-			<img class="position-absolute" src="<?php echo $infos['image']['url'];?>" alt="<?php echo $infos['image']['alt'];?>">
-			<div class="col-5 offset-7">
+			<div class="col order-2 order-lg-1">
+				<img class="bg" src="<?php echo $infos['image']['url'];?>" alt="<?php echo $infos['image']['alt'];?>">
+			</div>
+			<div class="col-12 col-lg-5 offset-lg-7 order-1 order-lg-2">
 				<div class="wrapper-text pt-4">
 					<?php
 					echo '<span class="text-scroll text-primary">'.$infos['txts']['sub_title'].'</span>';
@@ -162,13 +164,13 @@ $produtos = get_field('produtos');?>
 
 <?php $quality = get_field('qualidade'); ?>
 <section id="sec-5" class="quality">
-	<img class="bg" src="<?php echo $quality['image']['url'];?>" alt="<?php echo $quality['image']['alt'];?>">
+	<img class="bg d-none d-xl-block" src="<?php echo $quality['image']['url'];?>" alt="<?php echo $quality['image']['alt'];?>">
 	<div class="container">
 		<div class="row">
-			<div class="col-7">
+			<div class="col col-xl-7">
 				<div class="d-flex position-relative">
-					<div class="circle">
-						<span class="icon-medal"></span>
+					<div class="circle d-none d-lg-flex">
+						<span class="icon-guard"></span>
 					</div>
 					<div class="wrapper-text pl-4 pt-4">
 						<?php
@@ -196,7 +198,7 @@ $produtos = get_field('produtos');?>
 <section id="sec-6" class="certificados">
 	<div class="container">
 		<div class="row">
-			<div class="col">
+			<div class="col order-md-2 order-md-2 order-lg-1">
 				<?php // Check Swiper exists.
 				if( $selos['slide'] ) {
 					echo '<div class="swiper-certificados">';
@@ -215,7 +217,7 @@ $produtos = get_field('produtos');?>
 					echo '</div>';
 				}?>
 			</div>
-			<div class="col-6 offset-1">
+			<div class="col-12 col-lg-6 offset-lg-1 order-md-1 order-lg-2">
 				<div class="wrapper-text pt-5 mt-3">
 					<?php
 					echo '<span class="text-scroll text-info">'.$selos['txts']['sub_title'].'</span>';
@@ -231,16 +233,16 @@ $produtos = get_field('produtos');?>
 <section id="sec-7" class="contato bg-light">
 	<div class="container">
 		<div class="row">
-			<div class="col-5">
+			<div class="col-12 col-lg-5">
 				<div class="circle -min position-absolute">
 					<span class="icon-plan"></span>
 				</div>
 				<?php // Text fields from section 'topo'
 				echo '<h2 class="text-titulo text-dark">'.$contato['title'].'</h2>';
 				echo '<div class="text-texto mt-2 mb-4">'.$contato['description'].'</div>';
-				echo '<img class="bg" src="'.$contato['image']['url'].'" alt="'.$contato['image']['alt'].'">';?>
+				echo '<img class="bg d-none d-lg-block" src="'.$contato['image']['url'].'" alt="'.$contato['image']['alt'].'">';?>
 			</div>
-			<div class="col-5 offset-1">
+			<div class="col-12 col-lg-5 offset-lg-1">
 				<?php echo do_shortcode('[contact-form-7 id="145" title="Contact form"]');?>
 			</div>
 		</div>
