@@ -1,0 +1,16 @@
+{
+	"browserSyncOptions": {
+		"proxy": "localhost/",
+		"notify": false,
+		"files": ["./css/*.min.css", "./js/*.min.js", "./**/*.php"]
+	},
+	"paths": {
+		"js": "./js",
+		"css": "./css",
+		"img": "./img",
+		"dev": "./src",
+		"sass": "./sass",
+		"imgsrc": "./src/img",
+		"node": "./node_modules"
+	}
+}

@@ -1,0 +1,11 @@
+@import "theme/theme_variables"; // <-------- Add your variables into this file. Also add variables to overwrite Bootstrap variables here
+@import "assets/bootstrap4"; // <-------- Loads Bootstrap4
+@import "assets/swiper"; // <-------- Loads Swiper
+@import "custom/bs-wp"; // <-------- Just a few classes to incorporate Bootstrap in WordPress
+// @import "custom/woocommerce"; // <-------- Loads WooCommerce style fixes. Comment out if you aren't using WooCommerce
+
+// Any additional imported files //
+@import "theme/base"; // <-------- Global and generic setups
+@import "theme/fonts"; // <-------- Here we include all font families.
+@import "theme/theme"; // <-------- That's where you can add your own design. Thats your part!
+@import "theme/contact-form7"; // <-------- Contact Form 7 - Bootstrap 4 support

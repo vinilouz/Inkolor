@@ -1,0 +1,32 @@
+html {
+	scroll-behavior: smooth
+}
+
+#header,
+#footer {
+	z-index: 1;
+}
+
+#all {
+	overflow-x: hidden;
+}
+
+* {
+	//FontPerformance
+	text-rendering: geometricPrecision;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+ul {
+	padding-left: 0;
+}
+
+:focus {
+	outline: 0;
+}
+
+// Fix font family bottom space
+.btn {
+	padding-bottom: .275rem;
+}
