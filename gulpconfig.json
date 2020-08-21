@@ -7,10 +7,14 @@
 	"paths": {
 		"js": "./js",
 		"css": "./css",
+		"fonts": "./fonts",
 		"img": "./img",
-		"dev": "./src",
-		"sass": "./sass",
 		"imgsrc": "./src/img",
-		"node": "./node_modules"
+		"sass": "./sass",
+		"node": "./node_modules",
+		"composer": "./vendor",
+		"dev": "./src",
+		"dist": "./dist",
+		"distprod": "./dist-product"
 	}
 }

@@ -193,10 +193,94 @@ gulp.task( 'browser-sync', function() {
  */
 gulp.task( 'watch-bs', gulp.parallel( 'browser-sync', 'watch' ) );
 
+/**
+ * Delete minified CSS files and their maps
+ *
+ * Run: gulp cleancss
+ */
+gulp.task( 'cleancss', function() {
+	return del( paths.css + '/*.min.css*' );
+} );
+
+
+// Run:
+// gulp copy-assets.
+// Copy all needed dependency assets files from node_modules to theme's /js, /scss and /fonts folder. Run this task after npm update
+
+////////////////// All Bootstrap SASS  Assets /////////////////////////
+gulp.task( 'copy-assets', function( done ) {
+	////////////////// All Bootstrap 4 Assets /////////////////////////
+	// Copy all JS files
+	var stream = gulp
+		.src( paths.node + '/bootstrap/dist/js/**/*.js' )
+		.pipe( gulp.dest( paths.dev + '/js/bootstrap4' ) );
+
+	// Copy all Bootstrap SCSS files
+	gulp
+		.src( paths.node + '/bootstrap/scss/**/*.scss' )
+		.pipe( gulp.dest( paths.dev + '/sass/bootstrap4' ) );
+
+	////////////////// End Bootstrap 4 Assets /////////////////////////
+
+	// Copy all Font Awesome Fonts
+	gulp
+		.src( paths.node + '/font-awesome/fonts/**/*.{ttf,woff,woff2,eot,svg}' )
+		.pipe( gulp.dest( paths.fonts ) );
+
+	// Copy all Font Awesome SCSS files
+	gulp
+		.src( paths.node + '/font-awesome/scss/*.scss' )
+		.pipe( gulp.dest( paths.dev + '/sass/fontawesome' )	);
+
+	done();
+} );
+
+/**
+ * Deletes all files inside the dist folder and the folder itself.
+ *
+ * Run: gulp clean-dist
+ */
+gulp.task( 'clean-dist', function() {
+	return del( paths.dist );
+} );
+
+// Run
+// gulp dist
+// Copies the files to the dist folder for distribution as simple theme
+gulp.task(
+	'dist',
+	gulp.series( [ 'clean-dist' ], function() {
+		return gulp
+			.src(
+				[
+					'**/*',
+					'!' + paths.node,
+					'!' + paths.node + '/**',
+					'!' + paths.dev,
+					'!' + paths.dev + '/**',
+					'!' + paths.dist,
+					'!' + paths.dist + '/**',
+					'!' + paths.distprod,
+					'!' + paths.distprod + '/**',
+					'!' + paths.sass,
+					'!' + paths.sass + '/**',
+					'!' + paths.composer,
+					'!' + paths.composer + '/**',
+					'!+(readme|README).+(txt|md)',
+					'!*.+(dist|json|js|lock|xml)',
+					'!CHANGELOG.md',
+				],
+				{ buffer: true }
+			)
+			.pipe( gulp.dest( paths.dist ) );
+	} )
+);
+
+
 // Run
 // gulp compile
 // Compiles the styles and scripts and runs the dist task
-// gulp.task( 'compile', gulp.series( 'styles', 'scripts', 'dist' ) );
+gulp.task( 'compile', gulp.series( 'styles', 'scripts', 'dist' ) );
 
 // Run:
 // gulp

@@ -8,11 +8,11 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-/* 
+/*
  * Usuários que poderão ver todos os "menus"
  */
 $admins = array(
-	'volts'
+	'vinilouz'
 );
 $current_user = wp_get_current_user();
 
@@ -21,17 +21,14 @@ if(!in_array($current_user->user_login, $admins)){
 
 	/* Remover menus */
 	function remove_menus(){
-		//remove_menu_page( 'edit-comments.php' );				 // Comments
-		//remove_menu_page( 'plugins.php' );						 // Plugins
-		//remove_menu_page( 'tools.php' );						 // Tools
-		//remove_menu_page( 'options-general.php' );				 // Settings
-		//remove_menu_page( 'edit.php?post_type=acf-field-group'); // ACF (Campos personalizados)
-		//remove_menu_page( 'cptui_main_menu');					 // CPT UI (Editor de taxonomys)
-		//remove_menu_page( 'wpcf7');								 // Contact Form 7
-		//remove_menu_page( 'onesignal-push');					 // OneSignal
-		//remove_menu_page( 'loco');								 // loco translator
+		remove_menu_page( 'edit-comments.php' );				 // Comments
+		remove_menu_page( 'plugins.php' );						 // Plugins
+		remove_menu_page( 'tools.php' );						 // Tools
+		remove_menu_page( 'options-general.php' );				 // Settings
+		remove_menu_page( 'edit.php?post_type=acf-field-group'); // ACF (Campos personalizados)
+		remove_menu_page( 'edit.php');							 // Posts
+		remove_menu_page( 'wpcf7');								 // Contact Form 7
 		//remove_menu_page( 'itsec');								 // Itheme Security
-		//remove_menu_page( 'wp-mail-smtp');						 // Mail SMTP
 	}
 	add_action( 'admin_menu', 'remove_menus', 788 );
 
@@ -43,26 +40,27 @@ if(!in_array($current_user->user_login, $admins)){
 		// Posts
 		//remove_submenu_page( 'index.php', 'update-core.php' );								 // Updates
 		// Aparencia
-		//remove_submenu_page( 'themes.php', 'themes.php' );									 // Temas
-		//remove_submenu_page( 'themes.php', 'customize.php?return=%2Fwp-admin%2Findex.php' ); // Personalizar
-		//remove_submenu_page( 'themes.php', 'theme-editor.php' );							 // Editor de temas
+		remove_submenu_page( 'themes.php', 'themes.php' );									 // Temas
+		// remove_submenu_page( 'themes.php', 'customize.php?return=%2Fwp-admin%2Findex.php' ); // Personalizar
+		remove_submenu_page( 'themes.php', 'theme-editor.php' );							 // Editor de temas
 		// Usuários
-		//remove_submenu_page( 'users.php', 'users.php' );									 // Todos usuários
-		//remove_submenu_page( 'users.php', 'user-new.php' );									 // Novo usuário
+		remove_submenu_page( 'users.php', 'users.php' );									 // Todos usuários
+		remove_submenu_page( 'users.php', 'user-new.php' );									 // Novo usuário
 		// CFDB7
-		//remove_submenu_page( 'cfdb7-list.php', 'cfdb7-extensions' );						 // Todos usuários
+		remove_submenu_page( 'cfdb7-list.php', 'cfdb7-extensions' );						 // Todos usuários
 	}
 	add_action( 'admin_menu', 'remove_submenu_admin', 789 );
 
 	/* Remove all dashboard widgets */
 	function remove_default_widgets_dashboard(){
-		// remove_meta_box('dashboard_right_now', 'dashboard', 'normal');
-		// remove_meta_box('dashboard_activity', 'dashboard', 'normal');
-		// remove_meta_box('dashboard_recent_comments', 'dashboard', 'normal');
+		remove_meta_box('dashboard_right_now', 'dashboard', 'normal');
+		remove_meta_box('dashboard_activity', 'dashboard', 'normal');
+		remove_meta_box('dashboard_site_health', 'dashboard', 'normal');
+		remove_meta_box('dashboard_recent_comments', 'dashboard', 'normal');
 		// remove_meta_box('dashboard_incoming_links', 'dashboard', 'normal');
 		// remove_meta_box('dashboard_plugins', 'dashboard', 'normal');
 		// remove_meta_box('dashboard_quick_press', 'dashboard', 'side');
-		// remove_meta_box('dashboard_recent_drafts', 'dashboard', 'side');
+		remove_meta_box('dashboard_recent_drafts', 'dashboard', 'side');
 		// remove_meta_box('dashboard_primary', 'dashboard', 'side');
 		// remove_meta_box('dashboard_secondary', 'dashboard', 'side');
 		// remove_meta_box('wpseo-dashboard-overview', 'dashboard', 'side');
@@ -78,7 +76,7 @@ if(!in_array($current_user->user_login, $admins)){
 		$wp_admin_bar->remove_menu('new-content');			// Remove the content link
 		$wp_admin_bar->remove_menu('wpseo-menu');			// Remove the WP Seo link
 	}
-	// add_action( 'wp_before_admin_bar_render', 'remove_admin_bar_links' );
+	add_action( 'wp_before_admin_bar_render', 'remove_admin_bar_links' );
 
 	/* Remove a aba opções de tela */
 	add_filter('screen_options_show_screen', function(){
@@ -137,5 +135,5 @@ function wpmidia_change_footer_admin () {
 	style="width: 20px;height: 20px;transform: translateY(25%);" alt="Logo VoltsDigital" />
 	Desenvolvido por <a href="https://www.voltsdigital.com.br/" target="_blank">Volts Digital</a>
 	';
-} 
+}
 add_filter('admin_footer_text', 'wpmidia_change_footer_admin');

